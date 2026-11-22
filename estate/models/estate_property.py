@@ -21,10 +21,9 @@ class EstateProperty(models.Model):
     facade =fields.Integer('Facade', default=2)
     garage = fields.Boolean('Garage', default=False)#why bool ?? number of garage ?
     garden =fields.Boolean('Garden')
-    garden_area =fields.Integer('Facade')
-    garden_orientation = fields.Char('Garden orientation')
-
-    print(f'{garden=}')
+    garden_area =fields.Integer('Garden Area')
+    garden_orientation = fields.Selection(string='Garden Orientation',
+        selection=[('north','North'),('south','South'),('east', 'East'),('west','West')])
 
 
     #number_of_months = fields.Integer('# Months', required=True)
