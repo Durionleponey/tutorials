@@ -5,6 +5,10 @@
         Hello world"
     """,
 
+    'data': [
+        'security/ir.model.access.csv'
+    ],
+
     'description': """
         Hello destroctpi.
     """,
