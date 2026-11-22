@@ -14,7 +14,7 @@ class EstateProperty(models.Model):
     description = fields.Text(string='Description', translate=True)
     postcode = fields.Char('Postcode',required=True)#we do not need integer because we don't do math on that
     date_availability = fields.Date("Available From")#buit in
-    expected_price = fields.Float("Expected Price")
+    expected_price = fields.Float("Expected Price",required=True)
     selling_price =fields.Float("Selling Price")
     bedroom = fields.Integer('Number Of Bedrooms')
     living = fields.Integer('Living')
