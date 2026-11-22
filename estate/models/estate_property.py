@@ -14,11 +14,11 @@ class EstateProperty(models.Model):
     description = fields.Text(string='Description', translate=True)
     postcode = fields.Char('Postcode',required=True)#we do not need integer because we don't do math on that
     date_availability = fields.Date("Available From")#buit in
-    expected_price = fields.Float("Expected Price",required=True)
-    selling_price =fields.Float("Selling Price")
-    bedroom = fields.Integer('Number Of Bedrooms')
-    living = fields.Integer('Living')
-    facade =fields.Integer('Facade', default=2)
+    expected_price = fields.Float("Expected Price",required=True,help="hello help expected price !")
+    selling_price =fields.Float("Selling Price",index=True)#odoo will ask postegre to make a index to optimize the search !
+    bedrooms = fields.Integer('Number Of Bedrooms')
+    living_area = fields.Integer('Living')
+    facades =fields.Integer('Facade', default=2)
     garage = fields.Boolean('Garage', default=False)#why bool ?? number of garage ?
     garden =fields.Boolean('Garden')
     garden_area =fields.Integer('Garden Area')
