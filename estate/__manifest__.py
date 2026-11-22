@@ -13,6 +13,6 @@
     'application': True,
     'category': 'Tutorials',
     'installable': True,
-    'author': 'Odoo S.A.',
+    'author': 'Robin',
     'license': 'AGPL-3'
 }
