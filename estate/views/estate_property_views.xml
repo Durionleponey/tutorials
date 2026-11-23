@@ -6,12 +6,78 @@
         <field name="view_mode">list,form</field>
         <field name="help" type="html">
           <p>
-            Hello html
+            Hello html !
           </p><p>
-            Use lost reasons to explain why an opportunity is lost.
+            Add more estates with the "new" button !
           </p><p>
-            Some examples of lost reasons: "We don't have people/skill", "Price too high"
           </p>
         </field>
     </record>
+
+
+
+    <record id="estate_property_view_form" model="ir.ui.view">
+        <field name="name">estate.property.form</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <form string="Real Estate">
+                <sheet>
+                    <group>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="postcode"/>
+                            <field name="date_availability"/>
+                        </group>
+
+                        <group>
+                            <field name="expected_price"/>
+                            <field name="selling_price"/>
+                        </group>
+
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <group>
+                                <field string="Description" name="description"/>
+                                <field name="bedrooms"/>
+                                <field name="living_area"/>
+                                <field name="facades"/>
+
+                                <field name="garden"/>
+                                <field name="garden_area"/>
+                                <field name="garden_orientation"/>
+                                <field name="active"/>
+                             </group>
+
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+
+
+    <record id="estate_property_views" model="ir.ui.view">
+        <field name="name">estate.property.views</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <list string="Name">
+                <field name="name" string="name"/>
+                <field name="postcode" string="postcode"/>
+                <field name="bedrooms" string="bedrooms"/>
+                <field name="living_area"/>
+                <field name="expected_price"/>
+                <field name="selling_price"/>
+                <field name="date_availability"/>
+            </list>
+        </field>
+    </record>
 </odoo>
+
+
