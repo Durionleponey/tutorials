@@ -11,6 +11,7 @@ class EstateProperty(models.Model):
 
     #string is the first argument, it will show up in the ui, search...
     name = fields.Char(string='Name', required=True, translate=True)# translate different for eatch language eng/fr/nl...
+    active = fields.Boolean(default=True)
     description = fields.Text(string='Description', translate=True, default="here is somme default description")
     postcode = fields.Char('Postcode',required=True)#we do not need integer because we don't do math on that
     date_availability = fields.Date("Available From", default=lambda x:fields.Date.add(fields.Date.today(), months=3), copy=False)#not copy will prevent data to be copied when duplication
@@ -24,6 +25,10 @@ class EstateProperty(models.Model):
     garden_area =fields.Integer('Garden Area')
     garden_orientation = fields.Selection(string='Garden Orientation',
         selection=[('north','North'),('south','South'),('east', 'East'),('west','West')])
+    state = fields.Selection(string='State', default='new',
+        selection=[('new','New'),('offer Received','Offer Received'),('offer Accepted', 'Offer Accepted'),('sold','Sold'),('cancelled','Cancelled')])
+
+    #New, Offer Received, Offer Accepted, Sold and Cancelled
 
 
     #number_of_months = fields.Integer('# Months', required=True)
