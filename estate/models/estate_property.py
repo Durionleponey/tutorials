@@ -13,10 +13,10 @@ class EstateProperty(models.Model):
     name = fields.Char(string='Name', required=True, translate=True)# translate different for eatch language eng/fr/nl...
     description = fields.Text(string='Description', translate=True, default="here is somme default description")
     postcode = fields.Char('Postcode',required=True)#we do not need integer because we don't do math on that
-    date_availability = fields.Date("Available From", copy=False)#not copy will prevent data to be copied when duplication
+    date_availability = fields.Date("Available From", default=lambda x:fields.Date.add(fields.Date.today(), months=3), copy=False)#not copy will prevent data to be copied when duplication
     expected_price = fields.Float("Expected Price",required=True,help="hello help expected price !")
     selling_price =fields.Float("Selling Price",index=True, readonly=True, copy=False)#odoo will ask postegre to make a index to optimize the search !
-    bedrooms = fields.Integer('Number Of Bedrooms',default=True)
+    bedrooms = fields.Integer('Number Of Bedrooms',default=2)
     living_area = fields.Integer('Living')
     facades =fields.Integer('Facade', default=2)
     garage = fields.Boolean('Garage', default=False)#why bool ?? number of garage ?
