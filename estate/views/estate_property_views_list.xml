@@ -1,0 +1,12 @@
+<odoo>
+    <record id="estate_property_views" model="ir.ui.view">
+        <field name="name">estate.property.views</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <list string="Name">
+                <field name="name"/>
+                <field name="postcode"/>
+            </list>
+        </field>
+    </record>
+</odoo>
