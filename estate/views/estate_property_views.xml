@@ -25,6 +25,7 @@
                     <group>
                         <h1>
                             <field name="name"/>
+                            <field name="tags_ids" widget="many2many_tags"/>
                         </h1>
                     </group>
                     <group>
@@ -61,7 +62,6 @@
                             <group>
                                 <field name="buyer_id"/>
                                 <field name="saleperson_id"/>
-                                <field name="tags_ids"/>
                              </group>
                         </page>
                     </notebook>
