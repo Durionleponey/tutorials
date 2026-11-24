@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import fields, models
+from odoo import fields, models,api
 #ORM
 
 
@@ -27,7 +27,7 @@ class EstateProperty(models.Model):
     expected_price = fields.Float("Expected Price",required=True,help="hello help expected price !")
     selling_price =fields.Float("Selling Price",index=True, readonly=True, copy=False)#odoo will ask postegre to make a index to optimize the search !
     bedrooms = fields.Integer('Number Of Bedrooms',default=2)
-    living_area = fields.Integer('Living')
+    living_area = fields.Integer('Living Area   ')
     facades =fields.Integer('Facade', default=2)
     garage = fields.Boolean('Garage', default=False)#why bool ?? number of garage ?
     garden =fields.Boolean('Garden')
@@ -36,6 +36,37 @@ class EstateProperty(models.Model):
         selection=[('north','North'),('south','South'),('east', 'East'),('west','West')])
     state = fields.Selection(string='State', default='new',
         selection=[('new','New'),('offer Received','Offer Received'),('offer Accepted', 'Offer Accepted'),('sold','Sold'),('cancelled','Cancelled')])
+
+    total_space = fields.Float(compute="_compute_balance",string="Total Space")
+
+
+    @api.depends('garden_area', 'living_area')
+    def _compute_balance(self):#self contien tout les bien
+        for estate in self:
+            estate.total_space = estate.garden_area + estate.living_area#comme self contient plusieur bien en traite un bien à la fois et on enregirste le total pour tout
+
+
+
+    max_offer = fields.Float(compute="_compute_max_offer",string="Max offer")
+
+
+    @api.depends('offer_ids')
+    def _compute_max_offer(self):
+        for estate in self:#we loop on estate
+
+            #print(f"{estate=}")
+
+            estate.max_offer = 0
+
+            for offer in estate.offer_ids:#for eatch estate we loop on every offer
+
+                #print(f"{offer=}")
+
+                if offer.name > estate.max_offer:
+                    estate.max_offer = offer.name
+
+
+
 
     #New, Offer Received, Offer Accepted, Sold and Cancelled
 

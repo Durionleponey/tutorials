@@ -38,6 +38,8 @@
                         <group>
                             <field name="expected_price"/>
                             <field name="selling_price"/>
+                            <field name="total_space"/>
+                            <field name="max_offer"/>
                         </group>
 
                     </group>
@@ -48,7 +50,6 @@
                                 <field name="bedrooms"/>
                                 <field name="living_area"/>
                                 <field name="facades"/>
-
                                 <field name="garden"/>
                                 <field name="garden_area"/>
                                 <field name="garden_orientation"/>
