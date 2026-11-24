@@ -18,6 +18,8 @@ class EstateProperty(models.Model):
 
     tags_ids = fields.Many2many("estate.property.tags",string="Tags")
 
+    offer_ids = fields.One2many("estate.property.offers",'property_id',string="Offers")#in sql not necessary
+
     active = fields.Boolean(default=True)
     description = fields.Text(string='Description', translate=True, default="here is somme default description")
     postcode = fields.Char('Postcode',required=True)#we do not need integer because we don't do math on that
