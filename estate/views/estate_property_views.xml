@@ -56,6 +56,12 @@
                              </group>
 
                         </page>
+
+                        <page string="More Stuff">
+                            <group>
+                                <field name="buyer_id"/>
+                             </group>
+                        </page>
                     </notebook>
                 </sheet>
             </form>
