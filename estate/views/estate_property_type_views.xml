@@ -15,7 +15,7 @@
     </record>
 
 
-        <record id="estate_property_type_views_list" model="ir.ui.view">
+    <record id="estate_property_type_views_list" model="ir.ui.view">
         <field name="name">estate.property.type.views.list</field>
         <field name="model">estate.property.type</field>
         <field name="arch" type="xml">

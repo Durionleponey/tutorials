@@ -61,6 +61,7 @@
                             <group>
                                 <field name="buyer_id"/>
                                 <field name="saleperson_id"/>
+                                <field name="tags_ids"/>
                              </group>
                         </page>
                     </notebook>

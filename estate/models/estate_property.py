@@ -16,6 +16,8 @@ class EstateProperty(models.Model):
     buyer_id = fields.Many2one("res.partner",string="Buyer",copy=False)
     saleperson_id = fields.Many2one("res.users",default=lambda self: self.env.user)
 
+    tags_ids = fields.Many2many("estate.property.tags",string="Tags")
+
     active = fields.Boolean(default=True)
     description = fields.Text(string='Description', translate=True, default="here is somme default description")
     postcode = fields.Char('Postcode',required=True)#we do not need integer because we don't do math on that

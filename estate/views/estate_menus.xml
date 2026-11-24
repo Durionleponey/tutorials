@@ -7,6 +7,7 @@
 
         <menuitem id="real_estate_settings" name="Settings">
             <menuitem id="real_estate_settings_type" name="Property Type" action="real_estate_type_model_action"/>
+            <menuitem id="real_estate_settings_tags" name="Property Tags" action="real_estate_tags_model_action"/>
         </menuitem>
 
     </menuitem>

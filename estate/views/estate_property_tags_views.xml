@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="real_estate_tags_model_action" model="ir.actions.act_window">
+        <field name="name">Property Type</field>
+        <field name="res_model">estate.property.tags</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+          <p>
+            Hello html !
+          </p><p>
+            Add more estates type with the "new" button !
+          </p><p>
+          </p>
+        </field>
+    </record>
+
+
+    <record id="estate_property_tags_views_list" model="ir.ui.view">
+        <field name="name">estate.property.tags.views.list</field>
+        <field name="model">estate.property.tags</field>
+        <field name="arch" type="xml">
+            <list string="Tags">
+                <field name="id" string="identifiant of the tag"/>
+                <field name="name" string="tags's name"/>
+            </list>
+        </field>
+    </record>
+
+
+
+
+
+</odoo>
+
+
