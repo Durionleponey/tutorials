@@ -51,6 +51,7 @@
                                 <field name="garden_area"/>
                                 <field name="garden_orientation"/>
                                 <field name="active"/>
+                                <field name="postcode"/>
                              </group>
 
                         </page>
@@ -63,8 +64,8 @@
 
 
 
-    <record id="estate_property_views" model="ir.ui.view">
-        <field name="name">estate.property.views</field>
+    <record id="estate_property_views_list" model="ir.ui.view">
+        <field name="name">estate.property.views.list</field>
         <field name="model">estate.property</field>
         <field name="arch" type="xml">
             <list string="Name">
@@ -78,6 +79,37 @@
             </list>
         </field>
     </record>
+
+
+
+        <record id="estate_property_search" model="ir.ui.view">
+            <field name="name">estate.property.views.search</field>
+            <field name="model">estate.property</field>
+            <field name="arch" type="xml">
+                <search string="Tests">
+                    <field name="name" string="Title" /><!-- search bar proposition to search in this cat-->
+                    <field name="postcode"/>
+                    <field name="expected_price"/>
+                    <field name="bedrooms"/>
+                    <field name="living_area"/>
+                    <field name="facades"/>
+
+                <filter string="1300?" name="postcode_filter" domain="[('postcode', '=', 1300)]"/><!-- filter -->
+                <filter string="Active" name="active_filter" domain="[('active', '=', True)]"/>
+                <filter string="No Active" name="no_active_filter" domain="[('active', '=', False)]"/>
+
+                <filter string="Postcode" name="group_by_postcode" context="{'group_by': 'postcode'}"/><!-- group by -->
+                <filter string="Active" name="group_by_active" context="{'group_by': 'active'}"/>
+
+
+                </search>
+            </field>
+    </record>
+
+
+
+
+
 </odoo>
 
 
