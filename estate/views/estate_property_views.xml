@@ -40,6 +40,7 @@
                             <field name="selling_price"/>
                             <field name="total_space"/>
                             <field name="max_offer"/>
+                            <field name="max_offer_but_with_mapped"/>
                         </group>
 
                     </group>

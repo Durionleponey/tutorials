@@ -49,15 +49,14 @@ class EstateProperty(models.Model):
 
     max_offer = fields.Float(compute="_compute_max_offer",string="Max offer")
 
+    max_offer_but_with_mapped = fields.Float(compute="_compute_max_offer_mapped",string = "Max offer with mapped")
+
 
     @api.depends('offer_ids')
     def _compute_max_offer(self):
         for estate in self:#we loop on estate
-
             #print(f"{estate=}")
-
             estate.max_offer = 0
-
             for offer in estate.offer_ids:#for eatch estate we loop on every offer
 
                 #print(f"{offer=}")
@@ -65,6 +64,14 @@ class EstateProperty(models.Model):
                 if offer.name > estate.max_offer:
                     estate.max_offer = offer.name
 
+
+    @api.depends('offer_ids')
+    def _compute_max_offer_mapped(self):
+
+        for estate in self:
+            #print("🎉🎉")
+            #print(estate.offer_ids.mapped('name'))
+            estate.max_offer_but_with_mapped =max(estate.offer_ids.mapped('name'))
 
 
 
