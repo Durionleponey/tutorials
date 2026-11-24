@@ -14,6 +14,7 @@ class EstateProperty(models.Model):
 
     type_id = fields.Many2one("estate.property.type", string="Type of property")
     buyer_id = fields.Many2one("res.partner",string="Buyer",copy=False)
+    saleperson_id = fields.Many2one("res.users",default=lambda self: self.env.user)
 
     active = fields.Boolean(default=True)
     description = fields.Text(string='Description', translate=True, default="here is somme default description")

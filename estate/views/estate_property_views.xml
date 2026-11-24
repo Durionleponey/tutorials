@@ -60,6 +60,7 @@
                         <page string="More Stuff">
                             <group>
                                 <field name="buyer_id"/>
+                                <field name="saleperson_id"/>
                              </group>
                         </page>
                     </notebook>
