@@ -11,6 +11,7 @@ class EstateProperty(models.Model):
 
     #string is the first argument, it will show up in the ui, search...
     name = fields.Char(string='Name', required=True, translate=True)# translate different for eatch language eng/fr/nl...
+    type_id = fields.Many2one("estate.property.type", string="Type of property")
     active = fields.Boolean(default=True)
     description = fields.Text(string='Description', translate=True, default="here is somme default description")
     postcode = fields.Char('Postcode',required=True)#we do not need integer because we don't do math on that

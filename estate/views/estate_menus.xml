@@ -1,8 +1,14 @@
 <odoo>
     <menuitem id="real_estate_menu_root" name="Real Estate Robin">
-    <menuitem id="real_estate_first_level_menu" name="Advertissement">
-        <menuitem id="real_estate_model_menu_action" name="Property" action="real_estate_model_action"/>
-    </menuitem>
+
+        <menuitem id="real_estate_first_level_menu" name="Advertissement">
+            <menuitem id="real_estate_model_menu_action" name="Property" action="real_estate_model_action"/>
+        </menuitem>
+
+        <menuitem id="real_estate_settings" name="Settings">
+            <menuitem id="real_estate_settings_type" name="Property Type" action="real_estate_type_model_action"/>
+        </menuitem>
+
     </menuitem>
 
 </odoo>
