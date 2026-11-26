@@ -87,11 +87,15 @@ class EstateProperty(models.Model):
 
             if prop.garden:
 
-                if not prop.garden_area:
-                    prop.garden_area = 10
+                prop.garden_area = 10
 
-                if not prop.garden_orientation:
-                    prop.garden_orientation = 'north'
+                prop.garden_orientation = 'north'
+            else:
+
+                prop.garden_area =None
+                prop.garden_orientation = None
+
+
 
 
 
