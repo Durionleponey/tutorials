@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from odoo import fields, models,api
+from odoo.exceptions import UserError
+import random
 #ORM
 
 
@@ -100,6 +102,39 @@ class EstateProperty(models.Model):
         print("hello")
         for record in self:
             record.name = "Pomme de terre"
+        return True
+
+    def action_replace_name_by_random_coaster_name(self):
+        print("hello")
+        coaster = ["kondaa","loup-garou","vampire","calamity","mecalodon","turbine,cobra"]
+        for record in self:
+            key = random.randint(0, len(coaster)-1)
+            record.name = coaster[key]
+        return True
+
+    def action_set_as_sold(self):
+
+        for record in self:
+
+            if record.state == 'cancelled':
+                raise UserError("cannot sold a cancel property")  # exemple d'une erreur
+            else:
+                record.state = 'sold'
+
+        return True
+
+    def action_set_as_cancel(self):
+
+
+        for record in self:
+            print("🥸")
+
+            if record.state == 'sold':
+                print("🥸🥸🥸🥸")
+                raise UserError("cannot cancel a sold property")  # exemple d'une erreur
+            else:
+                record.state = 'cancelled'
+
         return True
 
 

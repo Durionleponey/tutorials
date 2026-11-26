@@ -25,6 +25,9 @@
             <form string="Real Estate">
                 <header>
                     <button name="action_replace_name_by_pomme_de_terre" type="object" string="Do Something"/>
+                    <button name="action_replace_name_by_random_coaster_name" type="object" string="Replace with random name of coaster"/>
+                    <button name="action_set_as_sold" type="object" string="set as sold"/>
+                    <button name="action_set_as_cancel" type="object" string="set as cancel"/>
                 </header>
 
                 <sheet>
@@ -36,6 +39,7 @@
                     </group>
                     <group>
                         <group>
+                            <field name="state"/>
                             <field name="type_id"/>
                             <field name="postcode"/>
                             <field name="date_availability"/>
@@ -47,6 +51,7 @@
                             <field name="total_space"/>
                             <field name="max_offer"/>
                             <field name="max_offer_but_with_mapped"/>
+                            <filed name="status"/>
                         </group>
 
                     </group>
@@ -101,10 +106,16 @@
         <field name="model">estate.property</field>
         <field name="arch" type="xml">
             <list string="Name">
-                                <header>
+                <header>
                     <button name="action_replace_name_by_pomme_de_terre" type="object" string="Replace name with pomme de terre"/>
+                    <button name="action_replace_name_by_random_coaster_name" type="object" string="Replace with random name of coaster"/>
+                    <button name="action_set_as_sold" type="object" string="set as sold"/>
+                    <button name="action_set_as_cancel" type="object" string="set as cancel"/>
+
+
                 </header>
                 <field name="name" string="name"/>
+                <field name="state"/>
                 <field name="postcode" string="postcode"/>
                 <field name="bedrooms" string="bedrooms"/>
                 <field name="living_area"/>
