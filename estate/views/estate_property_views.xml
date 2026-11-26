@@ -17,10 +17,16 @@
 
 
     <record id="estate_property_view_form" model="ir.ui.view">
+
+
         <field name="name">estate.property.form</field>
         <field name="model">estate.property</field>
         <field name="arch" type="xml">
             <form string="Real Estate">
+                <header>
+                    <button name="action_replace_name_by_pomme_de_terre" type="object" string="Do Something"/>
+                </header>
+
                 <sheet>
                     <group>
                         <h1>
@@ -95,6 +101,9 @@
         <field name="model">estate.property</field>
         <field name="arch" type="xml">
             <list string="Name">
+                                <header>
+                    <button name="action_replace_name_by_pomme_de_terre" type="object" string="Replace name with pomme de terre"/>
+                </header>
                 <field name="name" string="name"/>
                 <field name="postcode" string="postcode"/>
                 <field name="bedrooms" string="bedrooms"/>

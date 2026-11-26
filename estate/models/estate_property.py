@@ -9,6 +9,7 @@ class EstateProperty(models.Model):
     _description = "Table with the property house"
     #_order = "sequence"# a order by, by default when we will ask for the stuff
 
+
     #string is the first argument, it will show up in the ui, search...
     name = fields.Char(string='Name', required=True, translate=True)# translate different for eatch language eng/fr/nl...
 
@@ -94,6 +95,12 @@ class EstateProperty(models.Model):
 
                 prop.garden_area =None
                 prop.garden_orientation = None
+
+    def action_replace_name_by_pomme_de_terre(self):
+        print("hello")
+        for record in self:
+            record.name = "Pomme de terre"
+        return True
 
 
 
