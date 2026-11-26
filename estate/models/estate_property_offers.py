@@ -19,12 +19,28 @@ class EstateProperty(models.Model):
 
     validity =fields.Integer("Day left",default=7)
 
-    date_deadline = fields.Date("Date limite offre",compute='_compute_offer_deadline')
+    date_deadline = fields.Date("Date limite offre",compute='_compute_offer_deadline',inverse='_inverse_days')
 
     @api.depends('validity')  # use tho instant refresh and refresh with store=True
     def _compute_offer_deadline(self):
         for offers in self:
-            offers.date_deadline = fields.Date.add(offers.create_date, days=offers.validity)
+            temp = fields.Date.today()
+            if offers.create_date:
+                temp = offers.create_date.date()
+
+
+            offers.date_deadline = fields.Date.add(temp, days=offers.validity)
+
+
+    @api.onchange('date_deadline')#use to refresh the interface only
+    def _inverse_days(self):
+        for offers in self:
+            temp =fields.Date.today()
+            if offers.create_date:
+                temp = offers.create_date.date()
+            offers.validity = (offers.date_deadline- temp).days
+
+
 
     #string is the first argument, it will show up in the ui, search...
     #name = fields.Char(string='Name', required=True, translate=True)# translate different for eatch language eng/fr/nl...
