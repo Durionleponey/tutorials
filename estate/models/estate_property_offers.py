@@ -42,6 +42,21 @@ class EstateProperty(models.Model):
 
 
 
+    def action_confirm_offer(self):
+        for offer in self:
+            offer.status = 'accepted'
+
+            offer.property_id.selling_price = offer.name
+            offer.property_id.buyer_id = offer.partner_id
+
+    def action_refuse_offer(self):
+        for offer in self:
+            offer.status = 'refused'
+
+
+
+
+
     #string is the first argument, it will show up in the ui, search...
     #name = fields.Char(string='Name', required=True, translate=True)# translate different for eatch language eng/fr/nl...
     #active = fields.Boolean(default=True)

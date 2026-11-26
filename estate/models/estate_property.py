@@ -83,7 +83,7 @@ class EstateProperty(models.Model):
             estate.max_offer_but_with_mapped =max(estate.offer_ids.mapped('name'))
 
     @api.onchange('garden')
-    def garder_onchange(self):
+    def garden_onchange(self):
 
 
         for prop in self:
@@ -106,7 +106,7 @@ class EstateProperty(models.Model):
 
     def action_replace_name_by_random_coaster_name(self):
         print("hello")
-        coaster = ["kondaa","loup-garou","vampire","calamity","mecalodon","turbine,cobra"]
+        coaster = ["kondaa","loup-garou","vampire","calamity","mecalodon","turbine","cobra"]
         for record in self:
             key = random.randint(0, len(coaster)-1)
             record.name = coaster[key]
