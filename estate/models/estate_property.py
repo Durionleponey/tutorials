@@ -82,13 +82,16 @@ class EstateProperty(models.Model):
     @api.onchange('garden')
     def garder_onchange(self):
 
+
         for prop in self:
 
-            if not prop.garden_area:
-                prop.garden_area = 10
+            if prop.garden:
 
-            if not prop.garden_orientation:
-                prop.garden_orientation = 'north'
+                if not prop.garden_area:
+                    prop.garden_area = 10
+
+                if not prop.garden_orientation:
+                    prop.garden_orientation = 'north'
 
 
 
