@@ -54,6 +54,7 @@ class EstateProperty(models.Model):
 
     @api.depends('offer_ids')#use tho instant refresh and refresh with store=True
     def _compute_max_offer(self):
+
         for estate in self:#we loop on estate
             #print(f"{estate=}")
             estate.max_offer = 0
@@ -65,11 +66,31 @@ class EstateProperty(models.Model):
 
     @api.depends('offer_ids')
     def _compute_max_offer_mapped(self):
+        print("🎉🎉")
+        print(self)
 
         for estate in self:
+
+            if len(estate.offer_ids) == 0:
+                estate.max_offer_but_with_mapped =0
+                continue
+
             #print("🎉🎉")
             #print(estate.offer_ids.mapped('name'))
             estate.max_offer_but_with_mapped =max(estate.offer_ids.mapped('name'))
+
+    @api.onchange('garden')
+    def garder_onchange(self):
+
+        for prop in self:
+
+            if not prop.garden_area:
+                prop.garden_area = 10
+
+            if not prop.garden_orientation:
+                prop.garden_orientation = 'north'
+
+
 
 
 
