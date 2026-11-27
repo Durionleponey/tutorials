@@ -14,7 +14,7 @@ class EstateProperty(models.Model):
         'CHECK(name > 0)',
         'An offer price must be strictly positive',
     )
-
+    #yeah meaby i need to change that name = Float
     name = fields.Float("Expected Price",required=True,default=1)
 
     status = fields.Selection(string='Status', copy=False,

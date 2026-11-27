@@ -10,6 +10,7 @@ class EstateProperty(models.Model):
     #_order = "sequence"# a order by, by default when we will ask for the stuff
 
     name = fields.Char(string='Type',required=True,translate=True)
+    property_ids = fields.One2many('estate.property','type_id')
 
     #string is the first argument, it will show up in the ui, search...
     #name = fields.Char(string='Name', required=True, translate=True)# translate different for eatch language eng/fr/nl...
