@@ -8,6 +8,7 @@ class EstateProperty(models.Model):
     _name = "estate.property.tags"
     _description = "Table with the tags of property house"
     #_order = "sequence"# a order by, by default when we will ask for the stuff
+    _order = ('name')
 
     name = fields.Char(string='Type',required=True,translate=True)
 

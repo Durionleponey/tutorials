@@ -8,6 +8,7 @@ class EstateProperty(models.Model):
     _name = "estate.property.offers"
     _description = "Table with the offers for the property"
     #_order = "sequence"# a order by, by default when we will ask for the stuff
+    _order = "name desc"
 
 
     _check_property_offer_price = models.Constraint(

@@ -20,6 +20,7 @@
         <field name="model">estate.property.type</field>
         <field name="arch" type="xml">
             <list string="Type">
+                <field name="sequence" widget="handle"/>
                 <field name="id" string="identifiant"/>
                 <field name="name" string="name"/>
             </list>

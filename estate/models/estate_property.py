@@ -11,6 +11,7 @@ class EstateProperty(models.Model):
     _name = "estate.property"
     _description = "Table with the property house"
     #_order = "sequence"# a order by, by default when we will ask for the stuff
+    _order = "id"
 
     _check_property_expected_price = models.Constraint(
         'CHECK(expected_price > 0)',
