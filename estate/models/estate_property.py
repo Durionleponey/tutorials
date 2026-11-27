@@ -25,7 +25,7 @@ class EstateProperty(models.Model):
 
 
     #string is the first argument, it will show up in the ui, search...
-    name = fields.Char(string='Name', required=True, translate=True)# translate different for eatch language eng/fr/nl...
+    name = fields.Char(string='Name', required=True, translate=True,default="New House")# translate different for eatch language eng/fr/nl...
 
     type_id = fields.Many2one("estate.property.type", string="Type of property")
     buyer_id = fields.Many2one("res.partner",string="Buyer",copy=False)
@@ -37,9 +37,9 @@ class EstateProperty(models.Model):
 
     active = fields.Boolean(default=True)
     description = fields.Text(string='Description', translate=True, default="here is somme default description")
-    postcode = fields.Char('Postcode',required=True)#we do not need integer because we don't do math on that
+    postcode = fields.Char('Postcode',required=True,default=1000)#we do not need integer because we don't do math on that
     date_availability = fields.Date("Available From", default=lambda x:fields.Date.add(fields.Date.today(), months=3), copy=False)#not copy will prevent data to be copied when duplication
-    expected_price = fields.Float("Expected Price",required=True,help="hello help expected price !")
+    expected_price = fields.Float("Expected Price",required=True,help="hello help expected price !",default=1)
     selling_price =fields.Float("Selling Price",index=True, readonly=True, copy=False,default=0)#odoo will ask postegre to make a index to optimize the search !
 
     @api.constrains('selling_price')
