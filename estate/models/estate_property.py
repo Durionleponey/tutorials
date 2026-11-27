@@ -11,6 +11,11 @@ class EstateProperty(models.Model):
     _description = "Table with the property house"
     #_order = "sequence"# a order by, by default when we will ask for the stuff
 
+    _check_property_price = models.Constraint(
+        'CHECK(expected_price > 0)',
+        'A property expected price must be strictly positive',
+    )
+
 
     #string is the first argument, it will show up in the ui, search...
     name = fields.Char(string='Name', required=True, translate=True)# translate different for eatch language eng/fr/nl...
