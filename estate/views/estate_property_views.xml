@@ -28,6 +28,8 @@
                     <button name="action_replace_name_by_random_coaster_name" type="object" string="Replace with random name of coaster"/>
                     <button name="action_set_as_sold" type="object" string="set as sold"/>
                     <button name="action_set_as_cancel" type="object" string="set as cancel"/>
+                    <field name="state" widget="statusbar" statusbar_visible="new,offer,offer Received,offer Accepted,sold"/>
+
                 </header>
 
                 <sheet>
@@ -39,7 +41,6 @@
                     </group>
                     <group>
                         <group>
-                            <field name="state"/>
                             <field name="type_id"/>
                             <field name="postcode"/>
                             <field name="date_availability"/>
