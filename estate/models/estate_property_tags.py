@@ -12,6 +12,8 @@ class EstateProperty(models.Model):
 
     name = fields.Char(string='Type',required=True,translate=True)
 
+    color = fields.Integer("color")
+
 
     _check_estate_property_tags = models.Constraint(
         'unique(name)',

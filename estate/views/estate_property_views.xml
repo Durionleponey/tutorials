@@ -36,7 +36,7 @@
                     <group>
                         <h1>
                             <field name="name"/>
-                            <field name="tags_ids" widget="many2many_tags"/>
+                            <field name="tags_ids" options="{'color_field': 'color'}" widget="many2many_tags"/>
                         </h1>
                     </group>
                     <group>
