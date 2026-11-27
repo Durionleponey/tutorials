@@ -23,6 +23,10 @@ class EstateProperty(models.Model):
     partner_id = fields.Many2one("res.partner", required=True)
     property_id = fields.Many2one("estate.property", required=True)
 
+
+
+
+
     validity =fields.Integer("Day left",default=7)
 
     date_deadline = fields.Date("Date limite offre",compute='_compute_offer_deadline',inverse='_inverse_days')

@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from odoo import fields, models,api
-from odoo.exceptions import UserError
+from odoo.tools.float_utils import float_compare
+from odoo.exceptions import UserError,ValidationError
 import random
 #ORM
 
@@ -38,7 +39,19 @@ class EstateProperty(models.Model):
     postcode = fields.Char('Postcode',required=True)#we do not need integer because we don't do math on that
     date_availability = fields.Date("Available From", default=lambda x:fields.Date.add(fields.Date.today(), months=3), copy=False)#not copy will prevent data to be copied when duplication
     expected_price = fields.Float("Expected Price",required=True,help="hello help expected price !")
-    selling_price =fields.Float("Selling Price",index=True, readonly=True, copy=False)#odoo will ask postegre to make a index to optimize the search !
+    selling_price =fields.Float("Selling Price",index=True, readonly=True, copy=False,default=0)#odoo will ask postegre to make a index to optimize the search !
+
+    @api.constrains('selling_price')
+    def _check_estate_selling_price(self):
+        for record in self:
+
+
+            if record.selling_price == 0:
+                break
+            if float_compare((record.expected_price * 0.8),record.selling_price,2) > 0:
+                raise ValidationError("The selling price must be 80% or more of the expected_price")
+
+
     bedrooms = fields.Integer('Number Of Bedrooms',default=2)
     living_area = fields.Integer('Living Area   ')
     facades =fields.Integer('Facade', default=2)
