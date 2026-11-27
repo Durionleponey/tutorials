@@ -9,7 +9,13 @@ class EstateProperty(models.Model):
     _description = "Table with the offers for the property"
     #_order = "sequence"# a order by, by default when we will ask for the stuff
 
-    name = fields.Float("Expected Price",required=True)
+
+    _check_property_offer_price = models.Constraint(
+        'CHECK(name > 0)',
+        'An offer price must be strictly positive',
+    )
+
+    name = fields.Float("Expected Price",required=True,default=1)
 
     status = fields.Selection(string='Status', copy=False,
         selection=[('accepted','Accepted'),('refused','Refused')])

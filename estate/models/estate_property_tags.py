@@ -11,6 +11,18 @@ class EstateProperty(models.Model):
 
     name = fields.Char(string='Type',required=True,translate=True)
 
+
+    _check_estate_property_tags = models.Constraint(
+        'unique(name)',
+        'A property tag name and property type name must be unique',
+    )
+
+
+    #_barcode_uniq = models.Constraint( #Stolen from hr model 🥸
+    #    'unique (barcode)',
+    #    'The Badge ID must be unique, this one is already assigned to another employee.',
+    #)
+
     #string is the first argument, it will show up in the ui, search...
     #name = fields.Char(string='Name', required=True, translate=True)# translate different for eatch language eng/fr/nl...
     #active = fields.Boolean(default=True)

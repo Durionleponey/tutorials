@@ -11,9 +11,14 @@ class EstateProperty(models.Model):
     _description = "Table with the property house"
     #_order = "sequence"# a order by, by default when we will ask for the stuff
 
-    _check_property_price = models.Constraint(
+    _check_property_expected_price = models.Constraint(
         'CHECK(expected_price > 0)',
         'A property expected price must be strictly positive',
+    )
+
+    _check_property_selling_price = models.Constraint(
+        'CHECK(selling_price >= 0)',
+        'A property selling_price must be strictly positive',
     )
 
 
