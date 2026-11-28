@@ -91,7 +91,7 @@
                                     <button name="action_confirm_offer" string="Confirm" type="object" invisible="status in ('refused', 'accepted')" icon="fa-check"/>
                                     <button name="action_refuse_offer" string="Refuse" type="object" invisible="status in ('refused', 'accepted')" icon="fa-times"/>
 
-                                    <field name="status"/>
+                                    <!-- <field name="status"/> -->
 
                                 </list>
                                 </field>
@@ -117,7 +117,7 @@
         <field name="name">estate.property.views.list</field>
         <field name="model">estate.property</field>
         <field name="arch" type="xml">
-            <list string="Name" decoration-bf="state == 'offer Accepted'" decoration-success="state in ('offer Received','offer Accepted')">
+            <list string="Name" decoration-muted="state in ('sold')" decoration-bf="state == 'offer Accepted'" decoration-success="state in ('offer Received','offer Accepted')">
                 <header>
                     <button name="action_replace_name_by_pomme_de_terre" type="object" string="Replace name with pomme de terre"/>
                     <button name="action_replace_name_by_random_coaster_name" type="object" string="Replace with random name of coaster"/>
