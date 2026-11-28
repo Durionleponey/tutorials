@@ -88,8 +88,8 @@
                                     <field name="validity"/>
                                     <field name="date_deadline"/>
 
-                                    <button name="action_confirm_offer" string="Confirm" type="object" icon="fa-check"/>
-                                    <button name="action_refuse_offer" string="Refuse" type="object" icon="fa-times"/>
+                                    <button name="action_confirm_offer" string="Confirm" type="object" invisible="status in ('refused', 'accepted')" icon="fa-check"/>
+                                    <button name="action_refuse_offer" string="Refuse" type="object" invisible="status in ('refused', 'accepted')" icon="fa-times"/>
 
                                     <field name="status"/>
 
