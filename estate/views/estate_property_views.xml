@@ -79,7 +79,7 @@
                         <page string="Offers">
                             <group>
                                 <field name="offer_ids" readonly="state in ('cancelled', 'sold','Offer Accepted')">
-                                <list editable="bottom">
+                                <list editable="bottom" decoration-success="status=='accepted'" decoration-danger="status=='refused'">
 <!--========form view list offers=========-->
 
                                     <field name="name"/>
@@ -117,7 +117,7 @@
         <field name="name">estate.property.views.list</field>
         <field name="model">estate.property</field>
         <field name="arch" type="xml">
-            <list string="Name" editable="bottom">
+            <list string="Name">
                 <header>
                     <button name="action_replace_name_by_pomme_de_terre" type="object" string="Replace name with pomme de terre"/>
                     <button name="action_replace_name_by_random_coaster_name" type="object" string="Replace with random name of coaster"/>
