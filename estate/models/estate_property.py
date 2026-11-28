@@ -161,6 +161,14 @@ class EstateProperty(models.Model):
 
         return True
 
+    def action_set_as_offer_received(self):
+
+        for record in self:
+
+            record.state = 'offer Received'
+
+        return True
+
 
 
 

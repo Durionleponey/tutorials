@@ -25,9 +25,6 @@ class EstateProperty(models.Model):
     property_id = fields.Many2one("estate.property", required=True)
 
 
-
-
-
     validity =fields.Integer("Day left",default=7)
 
     date_deadline = fields.Date("Date limite offre",compute='_compute_offer_deadline',inverse='_inverse_days')
@@ -59,6 +56,8 @@ class EstateProperty(models.Model):
 
             offer.property_id.selling_price = offer.name
             offer.property_id.buyer_id = offer.partner_id
+
+            offer.property_id.state = "offer Accepted"
 
     def action_refuse_offer(self):
         for offer in self:
