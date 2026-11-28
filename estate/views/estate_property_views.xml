@@ -78,7 +78,7 @@
 
                         <page string="Offers">
                             <group>
-                                <field name="offer_ids">
+                                <field name="offer_ids" readonly="state in ('cancelled', 'sold','Offer Accepted')">
                                 <list>
 <!--========form view list offers=========-->
 
