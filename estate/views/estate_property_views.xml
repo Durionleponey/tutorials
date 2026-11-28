@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
 <odoo>
+
+    <!--========action=========-->
     <record id="real_estate_model_action" model="ir.actions.act_window"><!-- wat will show up -->
         <field name="name">All property</field>
         <field name="res_model">estate.property</field><!-- wat model ? -->
@@ -15,9 +17,9 @@
     </record>
 
 
+    <!--========form view=========-->
 
     <record id="estate_property_view_form" model="ir.ui.view">
-
 
         <field name="name">estate.property.form</field>
         <field name="model">estate.property</field>
@@ -57,6 +59,8 @@
 
                     </group>
                     <notebook>
+<!--========form view tabs=========-->
+
                         <page string="Description">
                             <group>
                                 <field string="Description" name="description"/>
@@ -64,8 +68,8 @@
                                 <field name="living_area"/>
                                 <field name="facades"/>
                                 <field name="garden"/>
-                                <field name="garden_area"/>
-                                <field name="garden_orientation"/>
+                                <field name="garden_area" invisible="not garden"/>
+                                <field name="garden_orientation" invisible="not garden"/>
                                 <field name="active"/>
                                 <field name="postcode"/>
                              </group>
@@ -76,6 +80,8 @@
                             <group>
                                 <field name="offer_ids">
                                 <list>
+<!--========form view list offers=========-->
+
                                     <field name="name"/>
                                     <field name="partner_id"/>
                                     <field name="create_date"/>
@@ -106,7 +112,7 @@
 
 
 
-
+<!--========list view (main)=========-->
     <record id="estate_property_views_list" model="ir.ui.view">
         <field name="name">estate.property.views.list</field>
         <field name="model">estate.property</field>
@@ -133,7 +139,7 @@
     </record>
 
 
-
+<!--========search custom=========-->
         <record id="estate_property_search" model="ir.ui.view">
             <field name="name">estate.property.views.search</field>
             <field name="model">estate.property</field>
